@@ -14,7 +14,7 @@ export const APPContextProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const API = "http://hn.algolia.com/api/v1/search?";
+  const API = "https://hn.algolia.com/api/v1/search?";
   const fetchAPIData = async (URL) => {
     //Error handling
     try {
