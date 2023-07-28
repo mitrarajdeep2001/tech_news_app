@@ -11,7 +11,8 @@ import { ThreeDots } from "react-loader-spinner";
 import { styled } from "@mui/material/styles";
 
 const Stories = () => {
-  const { hits, isLoading, handleRemove } = useGlobalData();
+  const { hits, isLoading, handleRemove, isError } = useGlobalData();
+  //Handle loading
   if (isLoading) {
     return (
       <div className="loader">
@@ -28,7 +29,11 @@ const Stories = () => {
       </div>
     );
   }
-
+  //Handle error
+  if(isError){
+    return <div className="error">Failed to fetch stories!</div>
+  }
+  //Resonsive card breakpoints
   const StyledCard = styled(Card)(({ theme }) => ({
     width: "90%",
     [theme.breakpoints.up("sm")]: {

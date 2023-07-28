@@ -22,6 +22,12 @@ const reducer = (state, action) => {
         ...state,
         page: action.payload - 1,
       };
+    case "API_FAILED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
     default:
       return state;
   }

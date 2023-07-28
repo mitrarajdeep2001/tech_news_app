@@ -10,6 +10,7 @@ export const APPContextProvider = ({ children }) => {
     nbPages: 0,
     page: 0,
     hits: [],
+    isError: false
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -29,6 +30,9 @@ export const APPContextProvider = ({ children }) => {
       });
     } catch (error) {
       console.log(error);
+      dispatch({
+        type: "API_FAILED",
+      })
     }
   };
 
